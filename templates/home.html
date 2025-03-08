@@ -24,7 +24,7 @@
     </p> -->
     <h2 class="text-centre mt-2 mb-4" >Open positions</h2>
      <div>
-        {% for job in JOBS%}
+        {% for job in jobs %}
         <div class="border-bottom py-2">
             <div class="row align-items-center">
                 <!-- Job Details (9 columns) -->
@@ -34,7 +34,7 @@
                     <!-- Location Row -->
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <span style="font-weight: bold;">Location:</span> 
-                        <span>{{ job['location'] }}</span>
+                        <span>{{ job['Location'] }}</span>
                     </div>
         
                     <!-- Salary Row -->
