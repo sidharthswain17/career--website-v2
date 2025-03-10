@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ job.title }} – Careers</title>
+    {% include 'bootstrap.html' %}
+    <style>
+        body {
+            background-color: #ebebeb;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 55px; /* Adjusted for smaller navbar */
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+      <div class="container">
+        <div class="card p-4">
+            <h2 class="text-center text-danger">{{ job.title }}</h2>
+
+            <hr>
+
+            <h5 class="fw-bold">📍 Location</h5>
+            <p>{{ job.Location }}</p>
+
+            <h5 class="fw-bold">💰 Salary</h5>
+            <p>{{ job.salary }}</p>
+
+            <h5 class="fw-bold">📝 Responsibilities</h5>
+            <p>{{ job.responsibilities }}</p>
+
+            <h5 class="fw-bold">📌 Requirements</h5>
+            <p>{{ job.requirements }}</p>
+
+
+            <div class="d-flex justify-content-between mt-4">
+                <a href="mailto:hello@jobportal.ai?subject=Documents&body=My%20name%3A%20%3Cyour%20name%20here%3E%0A%0AMy%20resume%20link%3A%3Cresume%20link%3E%0A%0AMy%20LinkedIn%20link%3A%20%3Clinkedin%20link%3E" 
+                   class="btn btn-danger">
+                   Apply Now
+                </a>
+                <a href="{{ url_for('hello_world') }}" class="btn btn-outline-secondary">← Back to Jobs</a>
+            </div>
+        </div>
+    </div>
+    <div style="height: 50px"></div>
+    <div class="container mt-4">
+        <div class="card p-4">
+            <h3 class="text-center text-primary">Apply for This Job</h3>
+            <form action="{{  url_for('apply_to_job', id=job.id) }}" method="POST">
+                
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label for="full_name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="full_name" name="full_name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <!-- LinkedIn URL -->
+                <div class="mb-3">
+                    <label for="linkedin" class="form-label">LinkedIn URL</label>
+                    <input type="url" class="form-control" id="linkedin" name="linkedin" required>
+                </div>
+
+                <!-- Education -->
+                <div class="mb-3">
+                    <label for="education" class="form-label">Education</label>
+                    <input type="text" class="form-control" id="education" name="education" required>
+                </div>
+
+                <!-- Experience -->
+                <div class="mb-3">
+                    <label for="experience" class="form-label">Experience (in years)</label>
+                    <input type="number" class="form-control" id="experience" name="experience" min="0" required>
+                </div>
+
+                <!-- Resume URL -->
+                <div class="mb-3">
+                    <label for="resume_url" class="form-label">Resume URL</label>
+                    <input type="url" class="form-control" id="resume_url" name="resume_url" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

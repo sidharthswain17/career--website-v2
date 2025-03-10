@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details</title>
+    {% include 'bootstrap.html' %}
+    <style>
+        body {
+            background-color: #ffffff; /* Light red background */
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            border: 2px solid #dc3545; /* Red border */
+        }
+        .card-header {
+            background-color: #dc3545; /* Bootstrap red */
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .fw-bold {
+            color: #b71c1c; /* Darker red for headings */
+        }
+        a {
+            color: #c82333; /* Reddish color for links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .submission-message {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #155724; /* Dark green for success message */
+            background-color: #d4edda; /* Light green background */
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="submission-message">
+            Your application for the role of {{ job.title }} has been submitted successfully!
+        </div>
+        <div class="card">
+            <div class="card-header text-center">
+                Application Details
+            </div>
+            <div class="card-body">
+                <h5 class="fw-bold">Full Name</h5>
+                <p>{{ application.full_name }}</p>
+
+                <h5 class="fw-bold">Email</h5>
+                <p>{{ application.email }}</p>
+
+                <h5 class="fw-bold">LinkedIn URL</h5>
+                <p><a href="{{ application.linkedin }}" target="_blank">{{ application.linkedin }}</a></p>
+
+                <h5 class="fw-bold">Education</h5>
+                <p>{{ application.education }}</p>
+
+                <h5 class="fw-bold">Experience</h5>
+                <p>{{ application.experience }} years</p>
+
+                <h5 class="fw-bold">Resume</h5>
+                <p><a href="{{ application.resume_url }}" target="_blank">View Resume</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
